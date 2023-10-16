@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.student.mgmt.dto.TransactionResponceDto;
 import com.student.mgmt.entity.Transaction;
-import com.student.mgmt.exception.DataValidationException;
 import com.student.mgmt.service.impl.TransactionServiceImpl;
 
 @RestController
