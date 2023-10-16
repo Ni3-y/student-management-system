@@ -21,6 +21,7 @@ public class TransactionController {
 	
 	@PostMapping("/doTransaction")
 	public ResponseEntity<TransactionResponceDto> doTransaction(@RequestBody Transaction  transaction){
+		System.out.print("calling do transaction api:");
 		int id=0;// = transactionServiceImpl.doTransaction(transaction);
 		TransactionResponceDto responceDto;
 		String msg=null;
