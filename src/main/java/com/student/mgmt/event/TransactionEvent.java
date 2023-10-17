@@ -1,10 +1,10 @@
-package com.student.mgmt.event;
-
-import java.time.LocalDateTime;
-
-public class TransactionEvent {
+	package com.student.mgmt.event;
 	
-	private int trasactionId;
-	private LocalDateTime transactionDate;
-	private Boolean isRefundable;
-}
+	import java.time.LocalDateTime;
+	
+	public class TransactionEvent {
+		
+		private int trasactionId;
+		private LocalDateTime transactionDate;
+		private Boolean isRefundable;
+	}

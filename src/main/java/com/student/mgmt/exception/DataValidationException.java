@@ -1,13 +1,13 @@
-package com.student.mgmt.exception;
-
-public class DataValidationException extends RuntimeException {
-
+	package com.student.mgmt.exception;
 	
-	public DataValidationException(String message) {
-		super();
+	public class DataValidationException extends RuntimeException {
+	
+		
+		public DataValidationException(String message) {
+			super();
+		}
+	
+		public DataValidationException(String message, int statusCode) {
+			super();	}
+		
 	}
-
-	public DataValidationException(String message, int statusCode) {
-		super();	}
-	
-}
