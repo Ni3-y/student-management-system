@@ -1,12 +1,12 @@
-	package com.student.mgmt.service;
+package com.student.mgmt.service;
+
+import java.util.List;
+
+import com.student.mgmt.entity.Fee;
+
+public interface FeeService {
 	
-	import java.util.List;
+	public void addFee(Fee fee);
 	
-	import com.student.mgmt.entity.Fee;
-	
-	public interface FeeService {
-		
-		public void addFee(Fee fee);
-		
-		public void deleteFee(List<Fee> fees);
-	}
+	public void deleteFee(List<Fee> fees);
+}
