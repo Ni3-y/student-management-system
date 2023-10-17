@@ -84,6 +84,7 @@ public class StudentController {
 	@PutMapping("/updateStudent")
 	public ResponseEntity<String> updateStudent(@RequestBody Student student){
 		//update student
+		System.out.println("call updateStudent");
 		studentService.updateStudent(student);
 		
 		return new ResponseEntity<String>(String.format("student %d updated successfully...!", student.getStudId()), HttpStatus.ACCEPTED);
