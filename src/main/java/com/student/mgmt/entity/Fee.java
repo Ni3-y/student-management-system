@@ -13,10 +13,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -32,17 +34,12 @@ public class Fee {
 	@NotNull
 	private int trnId;
 	@NotNull
-	private BigDecimal total;
-	@NotNull
-	private BigDecimal paid;
+	private BigDecimal amount;
 	@NotNull
 	private BigDecimal remaining;
 	@Column(name="created_at")
 	@CreationTimestamp
-	private LocalDateTime createdAt;
-	@NotNull
-	@Column(name="transaction_date")
-	private LocalDateTime transactionDate;
+	private LocalDateTime createdAt;;
 	@Column(name="created_by")
 	@NotNull
 	private String createdBy;

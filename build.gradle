@@ -7,6 +7,8 @@ plugins {
 apply plugin:'java'
 apply plugin:'eclipse'
 
+//archivesBaseName = 'student-management-system'
+
 group = 'com.student.mgmt'
 version = '0.0.1-SNAPSHOT'
 
@@ -46,6 +48,11 @@ dependencies {
 sourceSets {
 main.java.srcDirs += "build/generated/source/apt/main"
 }
-tasks.named('test') {
-	useJUnitPlatform()
+//tasks.named('test') {
+// 	useJUnitPlatform()
+//}
+
+tasks.jar {
+    archiveFileName.set("student-management-system-2.jar")
 }
+

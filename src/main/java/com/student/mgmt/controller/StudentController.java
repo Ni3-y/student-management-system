@@ -61,7 +61,6 @@ public class StudentController {
 		BigDecimal totalFee = BigDecimal.ZERO;
 		BigDecimal remainingFee = BigDecimal.ZERO;
 		
-		
 		if(!getStudent.isEmpty()) {
 			student = getStudent.get();
 			studId = String.valueOf(student.getStudId());

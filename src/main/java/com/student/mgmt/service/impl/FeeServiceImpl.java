@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.student.mgmt.dto.StudentFeeDto;
 import com.student.mgmt.entity.Fee;
 import com.student.mgmt.repository.FeeRepository;
 import com.student.mgmt.service.FeeService;
@@ -28,6 +29,13 @@ public class FeeServiceImpl implements FeeService{
 		
 		fees.stream().forEach(t -> feeRepository.deleteById(t.getId()));				
 		
+	}
+
+	@Override
+	public StudentFeeDto getFeeDetail(Integer id) {
+		// TODO Auto-generated method stub
+		
+		return null;
 	}
 
 }
