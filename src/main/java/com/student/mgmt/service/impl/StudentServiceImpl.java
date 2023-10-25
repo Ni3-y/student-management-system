@@ -3,22 +3,25 @@ package com.student.mgmt.service.impl;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.student.mgmt.dto.StudentFeeDto;
 import com.student.mgmt.entity.Student;
+import com.student.mgmt.persistance.CustomQuery;
 import com.student.mgmt.repository.StudentRepository;
 import com.student.mgmt.service.StudentService;
 
 import jakarta.transaction.Transactional;
-import lombok.extern.slf4j.Slf4j;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
 	
-	@Autowired
-	private StudentRepository studentRepository;
+	//@Autowired
+	private final StudentRepository studentRepository;
+	private final CustomQuery customQuery;
 	
 	@Override
 	public List<Student> getStudents(){
@@ -31,10 +34,10 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public Optional<Student> getStudent(int id) {
+	public Optional<Student> getStudentById(int studentId) {
 		// TODO Auto-generated method stub
-		List<Student> findAll = studentRepository.findAll();
-		return findAll.stream().filter(student -> student.getStudId() == id).findFirst();
+		 Optional<Student> student = studentRepository.findById(studentId);
+		 return student;
 	}
 
 	@Override
@@ -46,5 +49,14 @@ public class StudentServiceImpl implements StudentService {
 		
 		studentRepository.save(updateStudent);
 		System.out.println("student info updated successfully...!");
+	}
+
+	@Override
+	public StudentFeeDto getStudentFeeDetails(int studentId) {
+	
+		StudentFeeDto studentFeeDetails = customQuery.getStudentFeeDetails(studentId);
+		System.out.println("StudentFeeDetailsObject: "+ studentFeeDetails);
+		
+		return studentFeeDetails;
 	}
 }

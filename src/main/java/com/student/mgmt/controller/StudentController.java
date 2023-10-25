@@ -15,10 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.student.mgmt.dto.StudentFeeDto;
 import com.student.mgmt.dto.StudentResponseDto;
 import com.student.mgmt.entity.Student;
 import com.student.mgmt.service.impl.StudentServiceImpl;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -52,7 +56,7 @@ public class StudentController {
 	
 	@GetMapping("/get/{id}")
 	public ResponseEntity<StudentResponseDto> getStudent(@PathVariable("id") int id){
-		Optional<Student> getStudent = studentService.getStudent(id);
+		Optional<Student> getStudent = studentService.getStudentById(id);
 		Student student = null;
 	
 		//StudentResponseDto studentReponseDto = new StudentResponseDto();
@@ -87,6 +91,17 @@ public class StudentController {
 		studentService.updateStudent(student);
 		
 		return new ResponseEntity<String>(String.format("student %d updated successfully...!", student.getStudId()), HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/feeDetail/{stud_id}")
+	public ResponseEntity<StudentFeeDto> getStudentFeeDetails(@PathVariable("stud_id") int studId ){
+		
+		log.info("fetching student fee info for studentId= ", studId);
+		StudentFeeDto studentFeeDetails = studentService.getStudentFeeDetails(studId);
+		log.info("feeDetails: ", studentFeeDetails);
+		return new ResponseEntity<StudentFeeDto>(studentFeeDetails, HttpStatus.FOUND);
+		
+		
 	}
 	
 }

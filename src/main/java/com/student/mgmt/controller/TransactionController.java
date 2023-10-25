@@ -46,8 +46,7 @@ public class TransactionController {
 	
 	@PutMapping("/refund/{id}")
 	public ResponseEntity<TransactionResponceDto> refundTransaction(@PathVariable int id){
-		
-		
+		transactionServiceImpl.refundTransaction(id);
 		
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}

@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentFeeDto {
+	
 	private BigDecimal totalFee;
-	private BigDecimal paidFee;
 	private BigDecimal remainingFee;
+	private BigDecimal paidFee;
 	
 }

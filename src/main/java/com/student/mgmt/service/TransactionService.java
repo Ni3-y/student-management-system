@@ -7,5 +7,5 @@ public interface TransactionService {
 
 	public Integer doTransaction(Transaction transaction);
 	
-	public TransactionResponceDto refund(Integer id);
+	public TransactionResponceDto refundTransaction(Integer id);
 }

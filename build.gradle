@@ -32,6 +32,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
@@ -41,8 +42,7 @@ dependencies {
 	compileOnly 'io.springfox:springfox-swagger-ui:2.9.2'
 	compileOnly 'org.mapstruct:mapstruct:1.5.5.Final'
 	// https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor
-	compileOnly 'org.mapstruct:mapstruct-processor:1.5.5.Final'
-	
+	compileOnly 'org.mapstruct:mapstruct-processor:1.5.5.Final'	
 	
 }
 sourceSets {
@@ -55,4 +55,6 @@ main.java.srcDirs += "build/generated/source/apt/main"
 tasks.jar {
     archiveFileName.set("student-management-system-2.jar")
 }
-
+tasks.bootJar {
+    archiveFileName.set("student-management-system.jar")	
+}

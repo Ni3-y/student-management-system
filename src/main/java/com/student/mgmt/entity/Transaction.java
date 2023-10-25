@@ -36,10 +36,11 @@ public class Transaction {
 	private int studId;
 	@NotNull
 	private BigDecimal amount;
-	@NotEmpty
-	@NotBlank
+	@NotNull(message = "transaction type can not be null")
 	@Column(name="trn_type")
 	private String trnType;
+	@NotNull(message = "status can not be null")
+	private String status;
 	@NotNull
 	@Column(name="transaction_date")
 	private LocalDateTime transactionDate;
